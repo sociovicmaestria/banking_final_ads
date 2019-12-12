@@ -1,0 +1,8 @@
+---
+applications:
+- name: react-flux-integration_ads
+  memory: 128MB
+  instances: 1
+  buildpacks:
+  - staticfile_buildpack
+  stack: cflinuxfs3
