@@ -1,5 +1,5 @@
 import React from "react";
-import Login from "./Login";
+import LoginPage from "./login/loginPage";
 import HomePage from "./HomePage";
 import HomeUser from "./HomeUser";
 import UserPage from "./users/UsersPage";
@@ -17,10 +17,11 @@ import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid pl-0">
       <ToastContainer autoClose={3000} hideProgressBar />
       <Switch>
-        <Route path="/" exact component={Login} />
+        <Route path="/" exact component={LoginPage} />
+
         <Route path="/home" component={HomePage} />
         <Route path="/users" component={UserPage} />
         <Route path="/user/:id" component={ViewClaims} />
@@ -31,6 +32,7 @@ function App() {
         <Route path="/createCustomer" component={ManageCustomerPage} />
         <Route path="/transactions" component={TransactionsPage} />
         <Route path="/createTransaction" component={ManageTransactionPage} />
+
         <Route component={NotFoundPage} />
       </Switch>
     </div>

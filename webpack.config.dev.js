@@ -31,6 +31,12 @@ module.exports = {
       favicon: "src/favicon.ico"
     })
   ],
+  resolve: {
+    alias: {
+      api: path.resolve(__dirname, 'src/api/'),
+      services: path.resolve(__dirname, 'src/services/')
+    }
+  },
   module: {
     rules: [
       {
