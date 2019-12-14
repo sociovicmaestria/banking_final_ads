@@ -2,12 +2,13 @@ import React from "react";
 import TextInput from "../common/TextInput";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import SelectInput from '../common/SelectInput'
 
-function TransactionForm(props) {
+function TransactionWithdrawnForm(props) {
   return (
     <main role="main" className="container">
       <div className="col-md-6">
-        <h2>Manage Transactions</h2>
+        <h2>New Withdrawn</h2>
         <div className="form-manage">
           <form onSubmit={props.onSubmit}>
             <TextInput
@@ -20,15 +21,6 @@ function TransactionForm(props) {
             />
 
             <TextInput
-              id="toAccountNumber"
-              name="toAccountNumber"
-              label="Destiny Account"
-              onChange={props.onChange}
-              value={props.transaction.toAccountNumber}
-              error={props.errors.toAccountNumber}
-            />
-
-            <TextInput
               id="amount"
               name="amount"
               label="Amount"
@@ -38,7 +30,7 @@ function TransactionForm(props) {
             />
 
             <input type="submit" value="Save" className="btn btn-primary" />
-            <Link to="/transactions" className="btn btn-danger">
+            <Link to="/cashierTransactions" className="btn btn-danger">
               Cancel
             </Link>
           </form>
@@ -48,11 +40,11 @@ function TransactionForm(props) {
   );
 }
 
-TransactionForm.propTypes = {
+TransactionWithdrawnForm.propTypes = {
   transaction: PropTypes.object.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired
 };
 
-export default TransactionForm;
+export default TransactionWithdrawnForm;

@@ -24,13 +24,6 @@ function TransactionsPage() {
         <div className="col-md-12">
           <h2>Transactions</h2>
           <hr />
-          <Link
-            className="btn btn-success"
-            style={{ float: "right" }}
-            to="/createTransaction"
-          >
-            Add Transaction
-          </Link>
           <br /><br />
           <TransactionList transactions={transactions}/>
         </div>

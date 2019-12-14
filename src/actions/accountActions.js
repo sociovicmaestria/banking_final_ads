@@ -3,6 +3,7 @@ import dispatcher from '../appDispatcher'
 import actionTypes from './actionTypes'
 
 export function loadAccounts() {
+
   return accountApi.getAccounts().then(accounts => {
     dispatcher.dispatch({
       actionType: actionTypes.LOAD_ACCOUNTS,

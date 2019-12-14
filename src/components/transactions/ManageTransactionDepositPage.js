@@ -1,17 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from 'react'
 import PropTypes from "prop-types";
-import TransactionForm from "./TransactionForm";
+import TransactionDepositForm from "./TransactionDepositForm";
 import { toast } from "react-toastify";
 import * as customerActions from "../../actions/customerActions";
-import HeaderManager from "../common/HeaderManager";
+import HeaderCashier from "../common/HeaderCashier";
 
-const ManageTransactionPage = props => {
+const ManageTransactionDepositPage = props => {
   const [errors, setErrors] = useState({});
   const [transaction, setTransaction] = useState({
     fromAccountNumber: "",
     toAccountNumber: "",
-    amount: ""
+    amount: "",
+    transferType:"D"
   });
+
 
   function handleChange({ target }) {
     //debugger;
@@ -23,8 +25,7 @@ const ManageTransactionPage = props => {
 
   function formIsValid() {
     const _errors = {};
-    if (!transaction.fromAccountNumber) _errors.fromAccountNumber = "fromAccountNumber is required";
-    if (!transaction.toAccountNumber) _errors.toAccountNumber = "toAccountNumber is required";
+    if (!transaction.toAccountNumber) _errors.toAccountNumber = "Destiny account is required";
     if (!transaction.amount) _errors.amount = "amount is required";
     setErrors(_errors);
     return Object.keys(_errors).length === 0;
@@ -34,15 +35,15 @@ const ManageTransactionPage = props => {
     event.preventDefault();
     if (!formIsValid()) return;
     customerActions.saveTransaction(transaction).then(() => {
-      props.history.push("/transactions");
+      props.history.push("/cashierTransactions");
       toast.success("Transfer done!");
     });
   }
 
   return (
     <>
-      <HeaderManager />
-      <TransactionForm
+      <HeaderCashier />
+      <TransactionDepositForm
         transaction={transaction}
         errors={errors}
         onChange={handleChange}
@@ -52,9 +53,9 @@ const ManageTransactionPage = props => {
   );
 };
 
-ManageTransactionPage.propTypes = {
+ManageTransactionDepositPage.propTypes = {
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired
 };
 
-export default ManageTransactionPage;
+export default ManageTransactionDepositPage;

@@ -6,7 +6,7 @@ function logOut() {
   authService.logOut();
 }
 
-function HeaderCustomer() {
+function HeaderCashier() {
   const activeStyle = { color: "white" };
   return (
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -27,18 +27,13 @@ function HeaderCustomer() {
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <NavLink className="nav-link" activeStyle={activeStyle} to="/homeCustomer">
+            <NavLink className="nav-link" activeStyle={activeStyle} to="/homeCashier">
               Home
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" activeStyle={activeStyle} to="/myAccounts">
-              My Accounts
-            </NavLink>
-          </li>
-          <li className="nav-item">
-            <NavLink className="nav-link" activeStyle={activeStyle} to="/myTransactions">
-              My Transactions
+            <NavLink className="nav-link" activeStyle={activeStyle} to="/cashierTransactions">
+              Transactions
             </NavLink>
           </li>
         </ul>
@@ -60,4 +55,4 @@ function HeaderCustomer() {
   );
 }
 
-export default HeaderCustomer;
+export default HeaderCashier;

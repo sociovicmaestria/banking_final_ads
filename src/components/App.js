@@ -10,7 +10,12 @@ import MyAccountsPage from "./accounts/MyAccountsPage";
 import LockAccount from "./accounts/LockAccount";
 import OpenAccount from "./accounts/OpenAccount";
 import TransactionsPage from "./transactions/TransactionsPage";
-import ManageTransactionPage from "./transactions/ManageTransactionPage";
+import MyTransactionsPage from "./transactions/MyTransactionsPage";
+import CashierTransactionsPage from "./transactions/CashierTransactionsPage";
+import ManageTransactionTCPage from "./transactions/ManageTransactionTCPage";
+import ManageTransactionTTPage from "./transactions/ManageTransactionTTPage";
+import ManageTransactionDepositPage from "./transactions/ManageTransactionDepositPage";
+import ManageTransactionWithdrawnPage from "./transactions/ManageTransactionWithdrawnPage";
 import { Route, Switch } from "react-router-dom";
 import NotFoundPage from "./NotFoundPage";
 import { ToastContainer } from "react-toastify";
@@ -33,7 +38,12 @@ function App() {
         <Route path="/lockAccount" component={LockAccount} />
         <Route path="/openAccount" component={OpenAccount} />
         <Route path="/transactions" component={TransactionsPage} />
-        <Route path="/createTransaction" component={ManageTransactionPage} />
+        <Route path="/myTransactions" component={MyTransactionsPage} />
+        <Route path="/cashierTransactions" component={CashierTransactionsPage} />
+        <Route path="/createTCTransaction" component={ManageTransactionTCPage} />
+        <Route path="/createTTTransaction" component={ManageTransactionTTPage} />
+        <Route path="/createDepositTransaction" component={ManageTransactionDepositPage} />
+        <Route path="/createWithdrawnTransaction" component={ManageTransactionWithdrawnPage} />
 
         <Route component={NotFoundPage} />
       </Switch>
