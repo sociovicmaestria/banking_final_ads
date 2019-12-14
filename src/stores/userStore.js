@@ -4,6 +4,7 @@ import actionTypes from "../actions/actionTypes";
 
 const CHANGE_EVENT = "change";
 let _users = [];
+let _roles = [];
 let _user = [];
 
 class UserStore extends EventEmitter {
@@ -21,6 +22,10 @@ class UserStore extends EventEmitter {
 
   getUsers() {
     return _users;
+  }
+
+  getRoles() {
+    return _roles;
   }
 
   getUserById() {
@@ -42,6 +47,10 @@ Dispatcher.register(action => {
       break;
     case actionTypes.GET_USER:
       _user = action.user;
+      store.emitChange();
+      break;
+    case actionTypes.LOAD_ROLES:
+      _roles = action.roles;
       store.emitChange();
       break;
     default:

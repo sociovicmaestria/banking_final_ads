@@ -28,3 +28,12 @@ export function loadUserById(id) {
     });
   });
 }
+
+export function loadRoles() {
+  return userApi.getRoles().then(roles => {
+    dispatcher.dispatch({
+      actionType: actionTypes.LOAD_ROLES,
+      roles: roles
+    });
+  });
+}

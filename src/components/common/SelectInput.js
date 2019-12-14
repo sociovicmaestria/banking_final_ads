@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-function TextInput(props) {
+function SelectInput(props) {
   let wrapperClass = "form-group";
   if (props.error.length > 0) {
     wrapperClass += " has-error";
@@ -10,34 +10,44 @@ function TextInput(props) {
     <div className={wrapperClass}>
       <label htmlFor={props.id}>{props.label}</label>
       <div className="field">
-        <input
+        <select
           id={props.id}
-          type="text"
-          onChange={props.onChange}
           name={props.name}
+          onChange={props.onChange}
           className="form-control"
           value={props.value}
-          maxLength={props.maxLength}
-        />
+        >
+          <option value="0">--Seleccione--</option>
+          {props.options.map(option => {
+            return (
+              <option key={option.id} value={option.id}>{option.name}</option>
+            );
+          })}
+        </select>
       </div>
       {props.error && <div className="alert alert-danger">{props.error}</div>}
     </div>
   );
 }
 
-TextInput.propTypes = {
+SelectInput.propTypes = {
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   value: PropTypes.string,
-  maxLength: PropTypes.string,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired
+    })
+  ).isRequired,
   error: PropTypes.string
 };
 
-TextInput.defaultProps = {
+SelectInput.defaultProps = {
   error: "",
-  maxLength: ""
+  options: []
 };
 
-export default TextInput;
+export default SelectInput;

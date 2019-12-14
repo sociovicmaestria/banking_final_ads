@@ -4,6 +4,7 @@ import HomeManager from "./HomeManager";
 import HomeCashier from "./HomeCashier";
 import HomerCustomer from "./HomeCustomer";
 import UserPage from "./users/UsersPage";
+import ManageUserPage from "./users/ManageUserPage";
 import { Route, Switch } from "react-router-dom";
 import NotFoundPage from "./NotFoundPage";
 import { ToastContainer } from "react-toastify";
@@ -20,6 +21,7 @@ function App() {
         <Route path="/homeCashier" component={HomeCashier} />
         <Route path="/homeCustomer" component={HomerCustomer} />
         <Route path="/users" component={UserPage} />
+        <Route path="/createUser" component={ManageUserPage} />
 
         <Route component={NotFoundPage} />
       </Switch>

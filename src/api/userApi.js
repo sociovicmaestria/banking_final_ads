@@ -2,6 +2,7 @@ import { handleResponse, handleError } from "./apiUtils";
 import authService from "../services/AuthService";
 
 const baseUrl = process.env.API_URL + "/api/users";
+const rolesUrl = process.env.API_URL + "/api/roles";
 
 export function getUsers() {
   return fetch(baseUrl, {
@@ -26,6 +27,14 @@ export function saveUser(user) {
     body: JSON.stringify({
       ...user
     })
+  })
+    .then(handleResponse)
+    .catch(handleError);
+}
+
+export function getRoles() {
+  return fetch(rolesUrl, {
+    headers: authService.getAuthHeader()
   })
     .then(handleResponse)
     .catch(handleError);

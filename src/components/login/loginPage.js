@@ -25,7 +25,7 @@ class LoginPage extends React.Component {
       .then((user) => {
         switch (user.role.id) {
           case ROLE.MANAGER:
-            this.props.history.push("/homeMaganer");
+            this.props.history.push("/homeManager");
             break;
           case ROLE.CASHIER:
             this.props.history.push("/homeCashier");
