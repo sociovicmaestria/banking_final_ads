@@ -8,8 +8,9 @@ function TransactionsPage() {
     <>
       <HeaderManager />
       <main role="main" className="container">
-        <div className="col-md-8">
+        <div className="col-md-12">
           <h2>Transactions</h2>
+          <hr />
           <Link
             className="btn btn-success"
             style={{ float: "right" }}

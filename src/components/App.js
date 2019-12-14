@@ -3,8 +3,11 @@ import LoginPage from "./login/loginPage";
 import HomeManager from "./HomeManager";
 import HomeCashier from "./HomeCashier";
 import HomerCustomer from "./HomeCustomer";
-import UserPage from "./users/UsersPage";
+import UsersPage from "./users/UsersPage";
 import ManageUserPage from "./users/ManageUserPage";
+import AccountsPage from "./accounts/AccountsPage";
+import TransactionsPage from "./transactions/TransactionsPage";
+import ManageTransactionPage from "./transactions/ManageTransactionPage";
 import { Route, Switch } from "react-router-dom";
 import NotFoundPage from "./NotFoundPage";
 import { ToastContainer } from "react-toastify";
@@ -20,8 +23,11 @@ function App() {
         <Route path="/homeManager" component={HomeManager} />
         <Route path="/homeCashier" component={HomeCashier} />
         <Route path="/homeCustomer" component={HomerCustomer} />
-        <Route path="/users" component={UserPage} />
+        <Route path="/users" component={UsersPage} />
         <Route path="/createUser" component={ManageUserPage} />
+        <Route path="/accounts" component={AccountsPage} />
+        <Route path="/transactions" component={TransactionsPage} />
+        <Route path="/createTransaction" component={ManageTransactionPage} />
 
         <Route component={NotFoundPage} />
       </Switch>

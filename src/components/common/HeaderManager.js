@@ -36,6 +36,16 @@ function HeaderManager() {
               Users
             </NavLink>
           </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" activeStyle={activeStyle} to="/accounts">
+              Accounts
+            </NavLink>
+          </li>
+          <li className="nav-item">
+            <NavLink className="nav-link" activeStyle={activeStyle} to="/transactions">
+              Transactions
+            </NavLink>
+          </li>
         </ul>
         <ul className="navbar-nav ml-auto">
           <span className="navbar-text">{authService.getUserInfo().name}</span>
