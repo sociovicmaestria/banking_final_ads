@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from 'react'
 import { Link } from "react-router-dom";
 import HeaderManager from "../common/HeaderManager";
+import transactionStore from '../../stores/transactionStore'
+import { loadTransactions } from '../../actions/transactionActions'
+import TransactionList from './TransactionList'
 
 function TransactionsPage() {
+  const [transactions, setTransactions] = useState(transactionStore.getTransactions());
 
+  useEffect(() => {
+    transactionStore.addChangeListener(onChange);
+    loadTransactions();
+    return () => transactionStore.removeChangeListener(onChange);
+  }, []);
+
+  function onChange() {
+    setTransactions(transactionStore.getTransactions());
+  }
   return (
     <>
       <HeaderManager />
@@ -18,6 +31,8 @@ function TransactionsPage() {
           >
             Add Transaction
           </Link>
+          <br /><br />
+          <TransactionList transactions={transactions}/>
         </div>
       </main>
     </>

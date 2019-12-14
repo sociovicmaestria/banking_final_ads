@@ -5,7 +5,6 @@ import userStore from "../../stores/userStore";
 import { toast } from "react-toastify";
 import * as userActions from "../../actions/userActions";
 import HeaderManager from "../common/HeaderManager";
-import { loadRoles } from '../../actions/userActions';
 
 const ManageUserPage = props => {
   const [errors, setErrors] = useState({});
@@ -26,7 +25,7 @@ const ManageUserPage = props => {
 
   useEffect(() => {
     userStore.addChangeListener(onChange);
-    loadRoles();
+    userActions.loadRoles();
     return () => userStore.removeChangeListener(onChange);
   }, []);
 
