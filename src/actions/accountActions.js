@@ -6,7 +6,7 @@ export function loadAccounts() {
   return accountApi.getAccounts().then(accounts => {
     dispatcher.dispatch({
       actionType: actionTypes.LOAD_ACCOUNTS,
-      accounts: accounts
+      accounts: accounts.data
     });
   });
 }
