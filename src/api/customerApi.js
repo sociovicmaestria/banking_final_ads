@@ -1,7 +1,7 @@
 import { handleResponse, handleError } from "./apiUtils";
 import authService from "../services/AuthService";
 
-const baseUrl = process.env.API_URL + "/api/customers";
+const baseUrl = process.env.API_URL + "/api/persons";
 const baseTransactionsUrl = process.env.API_URL + "/api/transactions/transfer";
 
 export function getCustomers() {

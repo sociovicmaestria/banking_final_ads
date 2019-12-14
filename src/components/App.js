@@ -6,6 +6,7 @@ import HomerCustomer from "./HomeCustomer";
 import UsersPage from "./users/UsersPage";
 import ManageUserPage from "./users/ManageUserPage";
 import AccountsPage from "./accounts/AccountsPage";
+import LockAccount from "./accounts/LockAccount";
 import TransactionsPage from "./transactions/TransactionsPage";
 import ManageTransactionPage from "./transactions/ManageTransactionPage";
 import { Route, Switch } from "react-router-dom";
@@ -26,6 +27,7 @@ function App() {
         <Route path="/users" component={UsersPage} />
         <Route path="/createUser" component={ManageUserPage} />
         <Route path="/accounts" component={AccountsPage} />
+        <Route path="/lockAccount" component={LockAccount} />
         <Route path="/transactions" component={TransactionsPage} />
         <Route path="/createTransaction" component={ManageTransactionPage} />
 

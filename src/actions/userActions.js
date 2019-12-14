@@ -5,7 +5,7 @@ import actionTypes from "./actionTypes";
 export function saveUser(course) {
   return userApi.saveUser(course).then(savedUser => {
     dispatcher.dispatch({
-      actionType: actionTypes.CREATE_COURSE,
+      actionType: actionTypes.CREATE_USER,
       course: savedUser
     });
   });

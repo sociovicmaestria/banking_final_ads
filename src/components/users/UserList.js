@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 function UserList(props) {
   return (
     <table className="table">
-      <thead>
+      <thead className="thead-dark">
         <tr>
           <th>ID</th>
           <th>USERNAME</th>
