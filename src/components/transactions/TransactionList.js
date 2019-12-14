@@ -2,6 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import { MDBDataTable } from 'mdbreact';
 
+function getTypeDescripcion (type) {
+  switch (type) {
+    case 'D':
+      return 'Deposit';
+    case 'R':
+      return 'Withdrawn';
+    case 'TC':
+      return 'Own transfer';
+    case 'TT':
+      return 'External transfer';
+    default:
+      return '';
+  }
+}
+
 function TransactionList(props) {
   const data = {
     columns: [
@@ -37,7 +52,7 @@ function TransactionList(props) {
       },
       {
         label: 'TYPE',
-        field: 'transferType',
+        field: 'type',
         sort: 'asc',
         width: 150
       },
@@ -58,6 +73,7 @@ function TransactionList(props) {
       return {
         ...transaction,
         customer: transaction.person.lastName + ', ' + transaction.person.firstName,
+        type: getTypeDescripcion(transaction.transferType)
       }
     })
   }

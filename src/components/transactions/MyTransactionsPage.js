@@ -18,7 +18,7 @@ function MyTransactionsPage() {
   function onChange() {
     setTransactions(transactionStore.getTransactions());
   }
-  const myTransactions = transactions.filter(transaction => transaction.person.id === AuthService.getPersonInfo().person.id)
+  const myTransactions = transactions.filter(transaction => transaction.person.id === AuthService.getPersonInfo().person.id);
   return (
     <>
       <HeaderCustomer />

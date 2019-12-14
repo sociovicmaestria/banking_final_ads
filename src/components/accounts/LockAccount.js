@@ -28,7 +28,8 @@ const LockAccount = props => {
   function handleSubmit(event) {
     event.preventDefault();
     if (!formIsValid()) return;
-    accountActions.lockedAccount(account).then(() => {
+    accountActions.lockedAccount(account).then((res) => {
+      console.log(res);
       props.history.push("/accounts");
       toast.success("Account Locked done!");
     });

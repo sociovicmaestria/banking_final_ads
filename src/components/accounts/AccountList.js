@@ -47,7 +47,7 @@ function AccountList(props) {
         ...account,
         customer: account.person.lastName + ', ' + account.person.firstName,
         dni: account.person.idNumber,
-        state: account.isLocked ? 'LOCKED' : 'ACTIVE'
+        state: account.locked === true ? 'LOCKED' : 'ACTIVE'
       }
     })
   }

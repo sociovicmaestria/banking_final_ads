@@ -42,7 +42,7 @@ const ManageTransactionTTPage = props => {
     setTransaction({
       ...transaction,
       [target.name]: target.value,
-      fromAccountNumber: target.options[target.value].innerHTML
+      fromAccountNumber: myAccounts.find(account => parseInt(account.id) === parseInt(target.value)).name
     });
   }
 
@@ -76,7 +76,7 @@ const ManageTransactionTTPage = props => {
       id: account.id,
       name: account.number
     }
-  })
+  });
 
   return (
     <>

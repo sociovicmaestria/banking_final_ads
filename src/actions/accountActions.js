@@ -25,7 +25,7 @@ export function loadAccountsCustomer(personId) {
   return accountApi.getAccountsCustomer(personId).then(accounts => {
     dispatcher.dispatch({
       actionType: actionTypes.LOAD_ACCOUNTS,
-      accounts: accounts
+      accounts: accounts.data
     });
   });
 }
