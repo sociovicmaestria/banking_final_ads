@@ -9,11 +9,11 @@ const LoginForm = ({ handleSubmit, onChange }) => (
           <span className="input-group-text"><i className="fas fa-user"></i></span>
         </div>
         <input
-          id="username"
-          name="username"
+          id="name"
+          name="name"
           type="text"
           className="form-control"
-          placeholder="username"
+          placeholder="name"
           onChange={onChange}/>
       </div>
       <div className="input-group form-group">
