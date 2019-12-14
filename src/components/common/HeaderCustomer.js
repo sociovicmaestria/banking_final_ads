@@ -6,12 +6,12 @@ function logOut() {
   authService.logOut();
 }
 
-function HeaderUser() {
+function HeaderCustomer() {
   const activeStyle = { color: "white" };
   return (
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
       <a className="navbar-brand" href="#">
-        Integración React
+        Banking ADS
       </a>
       <button
         className="navbar-toggler"
@@ -27,12 +27,12 @@ function HeaderUser() {
       <div className="collapse navbar-collapse" id="navbarCollapse">
         <ul className="navbar-nav mr-auto">
           <li className="nav-item">
-            <NavLink className="nav-link" activeStyle={activeStyle} to="/home">
+            <NavLink className="nav-link" activeStyle={activeStyle} to="/homeCustomer">
               Home
             </NavLink>
           </li>
           <li className="nav-item">
-            <NavLink className="nav-link" activeStyle={activeStyle} to="#">
+            <NavLink className="nav-link" activeStyle={activeStyle} to="/myAccounts">
               My Accounts
             </NavLink>
           </li>
@@ -60,4 +60,4 @@ function HeaderUser() {
   );
 }
 
-export default HeaderUser;
+export default HeaderCustomer;

@@ -20,6 +20,14 @@ export function getUserById(id) {
     .catch(handleError);
 }
 
+export function getUserByName(username) {
+  return fetch(baseUrl + "/byname/" + username, {
+    headers: authService.getAuthHeader()
+  })
+    .then(handleResponse)
+    .catch(handleError);
+}
+
 export function saveUser(user) {
   return fetch(baseUrl, {
     method: "POST",

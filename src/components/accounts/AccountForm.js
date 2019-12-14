@@ -3,11 +3,11 @@ import React from 'react'
 import TextInput from '../common/TextInput'
 import { Link } from 'react-router-dom'
 
-function LockAccountForm(props) {
+function AccountForm(props) {
   return (
     <main role="main" className="container">
       <div className="col-md-12">
-        <h2>Lock Account</h2>
+        <h2>{props.title}</h2>
         <hr />
         <form onSubmit={props.onSubmit}>
           <div className="col-md-6">
@@ -24,7 +24,7 @@ function LockAccountForm(props) {
           </div>
           <div className="col-md-6">
             <input type="submit" value="Save" className="btn btn-primary" />
-            <Link to="/accounts" className="btn btn-danger">
+            <Link to={props.route} className="btn btn-danger">
               Cancel
             </Link>
           </div>
@@ -34,11 +34,13 @@ function LockAccountForm(props) {
   );
 }
 
-LockAccountForm.propTypes = {
+AccountForm.propTypes = {
+  title: PropTypes.string.isRequired,
+  route: PropTypes.string.isRequired,
   account: PropTypes.object.isRequired,
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired
 };
 
-export default LockAccountForm;
+export default AccountForm;

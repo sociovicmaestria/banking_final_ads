@@ -1,10 +1,10 @@
 import React from "react";
-import HeaderUser from "./common/HeaderUser";
+import HeaderCustomer from "./common/HeaderCustomer";
 
 function HomeCashier() {
   return (
     <div>
-      <HeaderUser />
+      <HeaderCustomer />
       <main role="main" className="container">
         <div className="jumbotron">
           <h1>Dashboard Cshier</h1>

@@ -6,6 +6,7 @@ const CHANGE_EVENT = "change";
 let _accounts = [];
 let _account = [];
 let _responseLockedAccount = [];
+let _responseOpenAccount = [];
 
 class AccountStore extends EventEmitter {
   addChangeListener(callback) {
@@ -35,6 +36,10 @@ Dispatcher.register(action => {
       break;
     case actionTypes.LOCKED_ACCOUNT:
       _responseLockedAccount = action.responseLockedAccount;
+      store.emitChange();
+      break;
+    case actionTypes.OPEN_ACCOUNT:
+      _responseOpenAccount = action._responseOpenAccount;
       store.emitChange();
       break;
     default:

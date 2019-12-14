@@ -1,4 +1,5 @@
 import * as loginApi from "../api/loginApi";
+import * as userApi from "../api/userApi";
 
 class AuthService {
   logIn(credentials) {
@@ -6,6 +7,20 @@ class AuthService {
       this.saveUserInfo(loginUser);
       return loginUser;
     });
+  }
+
+  getUserByName(username) {
+    return userApi.getUserByName(username).then(person => {
+      this.savePersonInfo(person);
+    });
+  }
+
+  savePersonInfo(person) {
+    localStorage.setItem("personInfo", JSON.stringify(person));
+  }
+
+  getPersonInfo() {
+    return JSON.parse(localStorage.getItem("personInfo"));
   }
 
   saveUserInfo(credentials) {

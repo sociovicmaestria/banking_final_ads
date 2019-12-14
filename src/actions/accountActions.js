@@ -19,3 +19,21 @@ export function lockedAccount(account) {
     });
   });
 }
+
+export function loadAccountsCustomer(personId) {
+  return accountApi.getAccountsCustomer(personId).then(accounts => {
+    dispatcher.dispatch({
+      actionType: actionTypes.LOAD_ACCOUNTS,
+      accounts: accounts
+    });
+  });
+}
+
+export function openAccount(account, personId) {
+  return accountApi.openAccount(account, personId).then(_responseOpenAccount => {
+    dispatcher.dispatch({
+      actionType: actionTypes.OPEN_ACCOUNT,
+      _responseOpenAccount: _responseOpenAccount
+    });
+  });
+}

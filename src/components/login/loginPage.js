@@ -23,17 +23,19 @@ class LoginPage extends React.Component {
     authService
       .logIn(this.state)
       .then((user) => {
-        switch (user.role.id) {
-          case ROLE.MANAGER:
-            this.props.history.push("/homeManager");
-            break;
-          case ROLE.CASHIER:
-            this.props.history.push("/homeCashier");
-            break;
-          case ROLE.CUSTOMER:
-            this.props.history.push("/homeCustomer");
-            break;
-        }
+        authService.getUserByName(this.state.name).then(() => {
+          switch (user.role.id) {
+            case ROLE.MANAGER:
+              this.props.history.push("/homeManager");
+              break;
+            case ROLE.CASHIER:
+              this.props.history.push("/homeCashier");
+              break;
+            case ROLE.CUSTOMER:
+              this.props.history.push("/homeCustomer");
+              break;
+          }
+        });
       })
       .catch(() => {
         toast.error("User or Password Invalid!");

@@ -22,3 +22,23 @@ export function lockedAccount(account) {
     .then(handleResponse)
     .catch(handleError);
 }
+
+export function getAccountsCustomer(personId) {
+  return fetch(baseUrl + '/bycustomer/' + personId, {
+    headers: authService.getAuthHeader()
+  })
+    .then(handleResponse)
+    .catch(handleError);
+}
+
+export function openAccount(account, personId) {
+  return fetch(baseUrl + '/' + personId + '/accounts', {
+    method: "POST",
+    headers: authService.getAuthHeader(),
+    body: JSON.stringify({
+      ...account
+    })
+  })
+    .then(handleResponse)
+    .catch(handleError);
+}

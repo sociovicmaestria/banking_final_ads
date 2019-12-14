@@ -4,8 +4,9 @@ import HeaderManager from '../common/HeaderManager';
 import AccountForm from './AccountForm';
 import * as accountActions from "../../actions/accountActions";
 import { toast } from 'react-toastify'
+import AuthService from "services/AuthService";
 
-const LockAccount = props => {
+const OpenAccount = props => {
   const [errors, setErrors] = useState({});
   const [account, setAccount] = useState({
     number: "",
@@ -28,9 +29,9 @@ const LockAccount = props => {
   function handleSubmit(event) {
     event.preventDefault();
     if (!formIsValid()) return;
-    accountActions.lockedAccount(account).then(() => {
-      props.history.push("/accounts");
-      toast.success("Account Locked done!");
+    accountActions.openAccount(account, AuthService.getPersonInfo().person.id).then(() => {
+      props.history.push("/myAccounts");
+      toast.success("Open Account done!");
     });
   }
 
@@ -38,8 +39,8 @@ const LockAccount = props => {
     <>
       <HeaderManager />
       <AccountForm
-        title="Lock Account"
-        route="/accounts"
+        title="Open Account"
+        route="/myAccounts"
         account={account}
         errors={errors}
         onChange={handleChange}
@@ -49,9 +50,9 @@ const LockAccount = props => {
   );
 };
 
-LockAccount.propTypes = {
+OpenAccount.propTypes = {
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired
 };
 
-export default LockAccount;
+export default OpenAccount;
