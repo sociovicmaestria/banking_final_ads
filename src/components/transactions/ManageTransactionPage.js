@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import TransactionForm from "./TransactionForm";
 import { toast } from "react-toastify";
 import * as customerActions from "../../actions/customerActions";
-import Header from "../common/Header";
+import HeaderManager from "../common/HeaderManager";
 
 const ManageTransactionPage = props => {
   const [errors, setErrors] = useState({});
@@ -41,7 +41,7 @@ const ManageTransactionPage = props => {
 
   return (
     <>
-      <Header />
+      <HeaderManager />
       <TransactionForm
         transaction={transaction}
         errors={errors}

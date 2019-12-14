@@ -4,7 +4,7 @@ import UserForm from "./UserForm";
 import userStore from "../../stores/userStore";
 import { toast } from "react-toastify";
 import * as userActions from "../../actions/userActions";
-import Header from "../common/Header";
+import HeaderManager from "../common/HeaderManager";
 
 const ManageUserPage = props => {
   const [errors, setErrors] = useState({});
@@ -57,7 +57,7 @@ const ManageUserPage = props => {
 
   return (
     <>
-      <Header />
+      <HeaderManager />
       <UserForm
         user={user}
         errors={errors}

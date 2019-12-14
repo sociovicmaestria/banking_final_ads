@@ -1,13 +1,13 @@
 import React from "react";
-import Header from "./common/Header";
+import HeaderUser from "./common/HeaderUser";
 
-function HomePage() {
+function HomeCashier() {
   return (
     <div>
-      <Header />
+      <HeaderUser />
       <main role="main" className="container">
         <div className="jumbotron">
-          <h1>Dashboard Admin</h1>
+          <h1>Dashboard Cshier</h1>
           <p className="lead">
             This example is a quick exercise to illustrate how fixed to top
             navbar works. As you scroll, it will remain fixed to the top of your
@@ -19,4 +19,4 @@ function HomePage() {
   );
 }
 
-export default HomePage;
+export default HomeCashier;

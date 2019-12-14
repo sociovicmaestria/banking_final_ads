@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Header from "../common/Header";
+import HeaderManager from "../common/HeaderManager";
 
 function TransactionsPage() {
 
   return (
     <>
-      <Header />
+      <HeaderManager />
       <main role="main" className="container">
         <div className="col-md-8">
           <h2>Transactions</h2>

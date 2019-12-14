@@ -4,6 +4,7 @@ class AuthService {
   logIn(credentials) {
     return loginApi.login(credentials).then(loginUser => {
       this.saveUserInfo(loginUser);
+      return loginUser;
     });
   }
 

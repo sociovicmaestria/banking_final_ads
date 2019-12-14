@@ -3,7 +3,7 @@ import customerStore from "../../stores/customerStore";
 import CustomerList from "./CustomerList";
 import { Link } from "react-router-dom";
 import { loadCustomers } from "../../actions/customerActions";
-import Header from "../common/Header";
+import HeaderManager from "../common/HeaderManager";
 
 function CustomersPage() {
   const [customers, setCustomers] = useState(customerStore.getCustomers());
@@ -20,7 +20,7 @@ function CustomersPage() {
 
   return (
     <>
-      <Header />
+      <HeaderManager />
       <main role="main" className="container">
         <div className="col-md-8">
           <h2>Customers</h2>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import userStore from "../../stores/userStore";
 import * as userActions from "../../actions/userActions";
-import Header from "../common/Header";
+import HeaderManager from "../common/HeaderManager";
 import { Link } from "react-router-dom";
 
 const ViewClaims = props => {
@@ -25,7 +25,7 @@ const ViewClaims = props => {
 
   return (
     <>
-      <Header />
+      <HeaderManager />
       <main role="main" className="container">
         <div className="col-md-8">
           <Link className="btn btn-info" style={{ float: "right" }} to="/users">

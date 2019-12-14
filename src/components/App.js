@@ -1,19 +1,14 @@
 import React from "react";
 import LoginPage from "./login/loginPage";
-import HomePage from "./HomePage";
-import HomeUser from "./HomeUser";
+import HomeManager from "./HomeManager";
+import HomeCashier from "./HomeCashier";
+import HomerCustomer from "./HomeCustomer";
 import UserPage from "./users/UsersPage";
-import CustomerPage from "./customers/CustomerPage";
-import ManageUserPage from "./users/ManageUserPage";
-import ManageCustomerPage from "./customers/ManageCustomerPage";
-import ViewClaims from "./users/ViewClaims";
-import ViewAccounts from "./customers/ViewAccounts";
-import TransactionsPage from "./transactions/TransactionsPage";
-import ManageTransactionPage from "./transactions/ManageTransactionPage";
 import { Route, Switch } from "react-router-dom";
 import NotFoundPage from "./NotFoundPage";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import '../assets/css/style.css';
 
 function App() {
   return (
@@ -21,17 +16,10 @@ function App() {
       <ToastContainer autoClose={3000} hideProgressBar />
       <Switch>
         <Route path="/" exact component={LoginPage} />
-
-        <Route path="/home" component={HomePage} />
+        <Route path="/homeManager" component={HomeManager} />
+        <Route path="/homeCashier" component={HomeCashier} />
+        <Route path="/homeCustomer" component={HomerCustomer} />
         <Route path="/users" component={UserPage} />
-        <Route path="/user/:id" component={ViewClaims} />
-        <Route path="/createUser" component={ManageUserPage} />
-        <Route path="/my-account" component={HomeUser} />
-        <Route path="/customers" component={CustomerPage} />
-        <Route path="/customer/:id" component={ViewAccounts} />
-        <Route path="/createCustomer" component={ManageCustomerPage} />
-        <Route path="/transactions" component={TransactionsPage} />
-        <Route path="/createTransaction" component={ManageTransactionPage} />
 
         <Route component={NotFoundPage} />
       </Switch>

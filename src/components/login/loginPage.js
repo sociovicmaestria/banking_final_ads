@@ -4,6 +4,7 @@ import authService from 'services/AuthService';
 import { toast } from 'react-toastify';
 import PropTypes from 'prop-types';
 import LoginForm from './loginForm';
+import { ROLE } from '../Constans'
 
 class LoginPage extends React.Component {
   constructor(props) {
@@ -21,8 +22,18 @@ class LoginPage extends React.Component {
     e.preventDefault();
     authService
       .logIn(this.state)
-      .then(() => {
-        this.props.history.push("/home");
+      .then((user) => {
+        switch (user.role.id) {
+          case ROLE.MANAGER:
+            this.props.history.push("/homeMaganer");
+            break;
+          case ROLE.CASHIER:
+            this.props.history.push("/homeCashier");
+            break;
+          case ROLE.CUSTOMER:
+            this.props.history.push("/homeCustomer");
+            break;
+        }
       })
       .catch(() => {
         toast.error("User or Password Invalid!");

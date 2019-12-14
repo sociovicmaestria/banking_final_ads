@@ -4,7 +4,7 @@ import CustomerForm from "./CustomerForm";
 import customerStore from "../../stores/customerStore";
 import { toast } from "react-toastify";
 import * as customerActions from "../../actions/customerActions";
-import Header from "../common/Header";
+import HeaderManager from "../common/HeaderManager";
 
 const ManageCustomerPage = props => {
   const [errors, setErrors] = useState({});
@@ -58,7 +58,7 @@ const ManageCustomerPage = props => {
 
   return (
     <>
-      <Header />
+      <HeaderManager />
       <CustomerForm
         customer={customer}
         errors={errors}
